@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# gcc   -ffast-math -O3 -march=skylake -o out ./code/*.c -lSDL2 -lm
+# gcc   -ffast-math -O3 -march=skylake -c ./code/*.c -o ./build/
+for FILE in code/*.c; do gcc -O3 -march=native -mtune=native -ffast-math -Wall -Wno-unused-variable -Wno-unused-but-set-variable  -c $FILE -o build/${FILE#./*}.o ; done
+for FILE in code/*.asm; do nasm -f elf64 -F dwarf -g $FILE -o build/${FILE#./*}.o; done
+# # ld -o out ./build/code/* -lSDL2 -lm -lc
+gcc  -o out build/code/* -lSDL2 -lm -flto 
