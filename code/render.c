@@ -5,8 +5,6 @@
 
 float ZBuffer[RENDER_WIDTH][RENDER_HEIGHT];
 int faceIndex[RENDER_WIDTH][RENDER_HEIGHT];
-
-int indices[] = {0, 3, 6, 9, 12, 15, 18, 21};
 Vect3f globalVerts[maxVerts];
 int numGlobalVerts = 0;
 Vect3i faces[maxFaces];
